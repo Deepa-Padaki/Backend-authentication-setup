@@ -23,6 +23,11 @@ const users = [];
 app.use(cors());
 app.use(express.json());
 
+// Root endpoint for health check
+app.get('/', (req, res) => {
+    res.json({ message: 'Backend is running', status: 'OK' });
+});
+
 // Register endpoint
 app.post('/register', async (req, res) => {
     try {
