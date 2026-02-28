@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bcrypt = require('bcrypt');
 const cors = require('cors');
@@ -5,6 +6,16 @@ const cors = require('cors');
 const app = express();
 const PORT = 5000;
 const SALT_ROUNDS = 10;
+
+// Environment variables
+const DB_HOST = process.env.DB_HOST;
+const DB_USER = process.env.DB_USER;
+const DB_PASSWORD = process.env.DB_PASSWORD;
+const DB_NAME = process.env.DB_NAME;
+const JWT_SECRET = process.env.JWT_SECRET;
+
+console.log('DB_HOST:', DB_HOST);
+console.log('JWT_SECRET:', JWT_SECRET ? 'Loaded' : 'Not set');
 
 // In-memory database
 const users = [];
